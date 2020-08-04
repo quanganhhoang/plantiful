@@ -1,6 +1,6 @@
 # Plantiful
 
-[![Build Status](https://travis-ci.com/quanganhhoang/plantiful.svg?branch=master)](https://travis-ci.com/quanganhhoang/plantiful)
+[![Build Status](https://travis-ci.com/quanganhhoang/plantiful.svg?branch=master)](https://travis-ci.com/quanganhhoang/plantiful.svg?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Plantiful is an e-commerce web application created with create-react-app and firebase.
