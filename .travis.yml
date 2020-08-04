@@ -9,11 +9,14 @@ install:
 script:
     - npm run test
     - npm run build
-deploy:
-    provider: heroku
-    app: plantifully
-on:
-    branch: master
+
+# deploy:
+#     provider: heroku
+#     app: plantifully
+#     api_key:
+#         secure:
+# on:
+#     branch: master
 
 # notifications:
 #     email:
