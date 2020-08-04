@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { GlobalStyle } from './global.styles'
+import Header from './components/header/header.component';
+import Spinner from './components/spinner/spinner.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
-export default App;
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { checkUserSession } from './redux/user/user.actions';
+
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const SignInAndSignUpPage = lazy(() =>
+  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
+);
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const OrderConfirmationPage = lazy(() => import('./pages/order-confirmation/order-confirmation.component'));
+const PlantInfo = lazy(() => import('./components/plant-info/plant-info.component'));
+
+
+const App = ({ checkUserSession, currentUser }) => {
+    useEffect(() => {
+        checkUserSession();
+    }, [checkUserSession]);
+
+    return (
+        <div>
+            <GlobalStyle />
+            <Header />
+            <Switch>
+                <ErrorBoundary>
+                    <Suspense fallback={<Spinner />}>
+                        <Route exact path='/' component={HomePage} />
+                        <Route path='/shop' component={ShopPage} />
+                        <Route exact path='/checkout' component={CheckoutPage} />
+                        <Route exact path='/checkout/confirmation' component={OrderConfirmationPage} />
+                        <Route exact path='/catalog/:plant' component={PlantInfo} />
+                        <Route
+                            exact
+                            path='/signin'
+                            render={() =>
+                                currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
+                            }
+                        />
+                    </Suspense>
+                </ErrorBoundary>
+            </Switch>
+        </div>
+    );
+};
+
+// createStructuredSelector passes the redux state object to all selectors
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+});
+
+const mapDispatchToProps = dispatch => ({
+    checkUserSession: () => dispatch(checkUserSession())
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
