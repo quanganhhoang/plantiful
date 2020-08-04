@@ -26,6 +26,7 @@ Installing test libraries (jest & enzyme)
 - ~~Deploy to Heroku~~
 - Update plant images
 - Update plant information
+- Error message for order confirmation page
 - Optimize build with React memo
 - Tests
 
