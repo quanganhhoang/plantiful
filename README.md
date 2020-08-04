@@ -24,6 +24,7 @@ Installing test libraries (jest & enzyme)
 
 ## TODO:
 - ~~Deploy to Heroku~~
+- Add breadcrumbs to each page
 - Update plant images
 - Update plant information
 - Error message for order confirmation page
