@@ -1,0 +1,20 @@
+include:
+    -   language: node_js
+        node_js:
+            - "14.5.0"
+        install:
+            - npm install --silent
+        script:
+            - npm run test
+
+# notifications:
+#     email:
+#         - qahoang317@gmail.com
+
+# deploy:
+#     provider: heroku
+#     api_key:
+#         secure:
+#     app:
+
+# after_deploy:
