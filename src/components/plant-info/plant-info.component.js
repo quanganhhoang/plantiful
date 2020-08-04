@@ -77,10 +77,10 @@ export const PlantInfo = ( { addItem, location }) => {
         setActiveIndex(nextIndex);
     }
 
-    const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-    }
+    // const goToIndex = (newIndex) => {
+    //     if (animating) return;
+    //     setActiveIndex(newIndex);
+    // }
 
     // carousel
 
