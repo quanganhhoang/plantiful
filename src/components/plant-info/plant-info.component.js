@@ -18,7 +18,7 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    CarouselIndicators,
+    // CarouselIndicators,
     // CarouselCaption
 } from 'reactstrap';
 
@@ -40,7 +40,7 @@ export const PlantInfo = ( { addItem, location }) => {
         }
         fetchData();
         
-    }, []);
+    }, [location.state.item.name]);
 
 
     const slides = images.map(item => {
@@ -125,11 +125,11 @@ export const PlantInfo = ( { addItem, location }) => {
                 </ImagesContainer>
                 <InfoContainer>
                     <Info>Name: {name}</Info>
-                    <Info>Light:</Info>
-                    <Info>Water:</Info>
-                    <Info>Humidity:</Info>
-                    <Info>Toxic to pets:</Info>
-                    <Info>Other:</Info>
+                    <Info>Light: {light}</Info>
+                    <Info>Water: {water}</Info>
+                    <Info>Humidity: {humidity}</Info>
+                    <Info>Toxic to pets: {isToxicToPets}</Info>
+                    <Info>Other: {other}</Info>
                     <AddButton 
                         inverted
                         onClick={() => addItem(item)}>
