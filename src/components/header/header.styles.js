@@ -34,6 +34,7 @@ export const LogoContainer = styled(Link)`
         width: 50px;
         height: 50px;
         padding: 0;
+        font-size: 1.5em;
     }
 `;
 
@@ -45,13 +46,18 @@ export const OptionsContainer = styled.div`
     justify-content: flex-end;
 
     @media screen and (max-width: 800px) {
-        width: 80%;
+        width: 70%;
     }
 `;
 
 export const OptionLink = styled(Link)`
-  padding: 10px 15px;
-  cursor: pointer;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    @media screen and (max-width: 800px) {
+        padding: 10px 5px;
+        font-size: 0.8em;
+    }
 `;
 
 OptionLink.displayName = 'OptionLink';

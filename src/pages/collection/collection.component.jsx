@@ -5,6 +5,10 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
+import { 
+    Breadcrumbs, Crumb
+} from '../../components/breadcrumbs/breadcrumb.styles';
+
 import {
   CollectionPageContainer,
   CollectionTitle,
@@ -14,14 +18,27 @@ import {
 export const CollectionPage = ({ collection }) => {
     const { title, items } = collection;
     return (
-        <CollectionPageContainer>
-            <CollectionTitle>{title}</CollectionTitle>
-            <CollectionItemsContainer>
-            {items.map(item => (
-                <CollectionItem key={item.name} item={item} />
-            ))}
-            </CollectionItemsContainer>
-        </CollectionPageContainer>
+        <div>
+            <Breadcrumbs>
+                <Crumb>
+                    <a href="/">Home</a>
+                </Crumb>
+                <Crumb>
+                    <a href="/shop">Shop</a>
+                </Crumb>
+                <Crumb>
+                    {title}
+                </Crumb>
+            </Breadcrumbs>
+            <CollectionPageContainer>
+                <CollectionTitle>{title}</CollectionTitle>
+                <CollectionItemsContainer>
+                    {items.map(item => (
+                        <CollectionItem key={item.name} item={item} />
+                    ))}
+                </CollectionItemsContainer>
+            </CollectionPageContainer>
+        </div>
     );
 };
 

@@ -1,32 +1,12 @@
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 
-export const Breadcrumbs = styled.ul`
-    list-style: none;
-    padding: 0;
-    & > li:after {
-    content: "${props => props.separator || "/"}";
-    padding: 0 8px;
-    }
+
+export const PlantName = styled.h1`
+    padding-left: 5px;
+    margin-left: 5px;
 `;
 
-export const Crumb = styled.li`
-    display: inline-block;
-
-    &:last-of-type:after {
-        content: "";
-        padding: 0;
-    }
-
-    a {
-        color: green;
-        text-decoration: none;
-        &:hover,
-        &:active {
-            text-decoration: underline;
-        }
-    }
-`;
 
 export const PlantInfoContainer = styled.div`
     display: flex;
@@ -34,18 +14,27 @@ export const PlantInfoContainer = styled.div`
     height: 350px;
     align-items: center;
     position: relative;
+    padding-left: 5px;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
 `;
 
 export const ImagesContainer = styled.div`
-    width: 60%;
+    width: 40%;
     height: 90%;
     margin-bottom: 5px;
     margin-right: 20px;
     display: block;
+
+    @media screen and (max-width: 800px) {
+        margin-bottom: 50px;
+    }
 `;
 
 export const InfoContainer = styled.div`
-    width: 50%;
+    width: 60%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -56,7 +45,7 @@ export const Info = styled.p`
 `;
 
 export const AddButton = styled(CustomButton)`
-    width: 50%;
+    width: 60%;
     margin-top: 28px;
 
     @media screen and (max-width: 800px) {

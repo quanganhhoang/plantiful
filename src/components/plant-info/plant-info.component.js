@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { Breadcrumbs, Crumb } from './plant-info.styles'
+import { Breadcrumbs, Crumb } from '../breadcrumbs/breadcrumb.styles'
 
 import {
+    PlantName,
     PlantInfoContainer,
     ImagesContainer,
     InfoContainer,
@@ -109,7 +110,7 @@ export const PlantInfo = ( { addItem, location }) => {
                 </Crumb>
             </Breadcrumbs>
             
-            <h1>{name}</h1>
+            <PlantName>{name}</PlantName>
             <PlantInfoContainer>
                 <ImagesContainer>
                     <Carousel
