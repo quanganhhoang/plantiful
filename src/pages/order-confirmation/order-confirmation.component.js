@@ -133,7 +133,7 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder, confirmat
             <CustomButton
                 onClick={e => handleSubmit(e)}
             >
-                Submit
+                Place Order
             </CustomButton>
         </OrderConfirmationPageContainer>
     );
