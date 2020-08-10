@@ -72,7 +72,7 @@ export const getCurrentUser = () => {
 };
 
 export const addOrderRequest = async (userCredentials, cartItems, total) => {
-    const collectionRef = firestore.collection('requests');
+    const collectionRef = firestore.collection('orders');
 
     const batch = firestore.batch();
     const newDocRef = collectionRef.doc();
@@ -89,7 +89,7 @@ export const addOrderRequest = async (userCredentials, cartItems, total) => {
 };
 
 export const viewRequests = async () => {
-    const collectionRef = firestore.collection('requests')
+    const collectionRef = firestore.collection('orders')
 
     try {
         const snapshot = await collectionRef.where('isCompleted', '==', false).get();
@@ -119,6 +119,15 @@ export const getImagesFromFirestore = async (plantName) => {
     }
     
     return images;
+}
+
+export const fetchImage = async (image) => {
+    const imageFirebaseRef = storage.refFromURL(image);
+    try {
+        return await imageFirebaseRef.getDownloadURL();
+    } catch (err) {
+        console.log("Failed to fetch preview image", err);
+    }
 }
 
 // sign in with Google

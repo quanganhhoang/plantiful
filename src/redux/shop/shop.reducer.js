@@ -1,8 +1,9 @@
 import ShopActionTypes from './shop.types';
 
 const INITIAL_STATE = {
-    plants: null,
-    stems: null,
+    products: [],
+    plants: [],
+    stems: [],
     isFetching: false,
     errorMessage: undefined
 };
@@ -13,6 +14,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isFetching: true
+            };
+        case ShopActionTypes.FETCH_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                products: action.payload,
+                isFetching: false
             };
         case ShopActionTypes.FETCH_PLANTS_SUCCESS:
             return {

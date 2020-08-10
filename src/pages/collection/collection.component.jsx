@@ -34,9 +34,10 @@ export const CollectionPage = ({ items, match }) => {
             <CollectionPageContainer>
                 <CollectionTitle>{ title.toUpperCase() }</CollectionTitle>
                 <CollectionItemsContainer>
-                    {items.map(item => (
+                    {items ? 
+                    items.map(item => (
                         <CollectionItem key={item.name} item={item} />
-                    ))}
+                    )) : ""}
                 </CollectionItemsContainer>
             </CollectionPageContainer>
         </div>
