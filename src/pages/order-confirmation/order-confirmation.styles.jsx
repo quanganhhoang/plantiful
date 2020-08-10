@@ -44,15 +44,21 @@ export const HeaderBlockContainer = styled.div`
 `;
 
 export const TotalContainer = styled.div`
-  margin-top: 30px;
-  margin-left: auto;
-  font-size: 36px;
+    margin-top: 30px;
+    margin-left: auto;
+    font-size: 36px;
 `;
 
 export const InfoContainer = styled.div`
-  text-align: left;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 20px;
-  color: black;
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: black;
+`;
+
+export const ConfirmationMessage = styled.p`
+    text-align: center;
+    color: #9F6000;
+    background-color: #FEEFB3;
 `;

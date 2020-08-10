@@ -27,3 +27,8 @@ export const submitOrder = (userCredentials, cartItems, total) => ({
     type: CartActionTypes.SUBMIT_ORDER,
     payload: { userCredentials, cartItems, total }
 });
+
+export const submitOrderSuccess = (confirmationId) => ({
+    type: CartActionTypes.SUBMIT_ORDER_SUCCESS,
+    payload: confirmationId
+})

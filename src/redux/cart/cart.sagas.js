@@ -1,21 +1,26 @@
 import { all, call, takeLatest, put } from 'redux-saga/effects';
 
 import UserActionTypes from '../user/user.types';
-import { clearCart } from './cart.actions';
+import CartActionTypes from './cart.types';
+
+import { 
+    clearCart,
+    submitOrderSuccess
+} from './cart.actions';
 
 import {
     addOrderRequest,
-    viewRequests,
 } from '../../firebase/firebase.utils';
-import CartActionTypes from './cart.types';
+
 
 export function* clearCartOnSignOut() {
     yield put(clearCart());
 }
 
 export function* submitOrder({ payload : {userCredentials, cartItems, total} }) {
-    yield addOrderRequest(userCredentials, cartItems, total);
-    yield viewRequests();
+    const plantId = yield addOrderRequest(userCredentials, cartItems, total);
+    
+    yield put(submitOrderSuccess(plantId));
 }
 
 export function* onSignOutSuccess() {

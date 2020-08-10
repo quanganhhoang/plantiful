@@ -6,7 +6,8 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 
 import {
     selectCartItems,
-    selectCartTotal
+    selectCartTotal,
+    selectConfirmationId
 } from '../../redux/cart/cart.selectors';
 
 import {
@@ -15,6 +16,7 @@ import {
     HeaderBlockContainer,
     InfoContainer,
     TotalContainer,
+    ConfirmationMessage
 } from './order-confirmation.styles';
 
 import FormInput from '../../components/form-input/form-input.component';
@@ -29,8 +31,9 @@ const INITIAL_STATE = {
     phoneNumber: ''
 }
 
-export const OrderConfirmationPage = ({ cartItems, total, submitOrder }) => {
+export const OrderConfirmationPage = ({ cartItems, total, submitOrder, confirmationId }) => {
     const [userCredentials, setUserCredentials] = useState(INITIAL_STATE);
+    const [confirmationMessage, setConfirmationMessage] = useState('');
 
     const handleChange = event => {
         const { value, name } = event.target;
@@ -45,8 +48,11 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder }) => {
         if (validateInformation(userCredentials, cartItems)) {
             submitOrder(userCredentials, cartItems, total)
             setUserCredentials(INITIAL_STATE);
+            setConfirmationMessage(`Your order has been submitted. Here is your confirmation order: ${confirmationId}`);
+        } else if (!Array.isArray(cartItems) || !cartItems.length) {
+            setConfirmationMessage('Did you forget to pick your favorite plants? :)');
         } else {
-            console.log("ERROR");
+            setConfirmationMessage('Please fill out all information above.');
         }
     }
 
@@ -115,10 +121,15 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder }) => {
                 </HeaderBlockContainer>
             </OrderConfirmationHeaderContainer>
             {cartItems.map(cartItem => (
-                <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                <CheckoutItem key={cartItem.name} cartItem={cartItem} />
             ))}
             <TotalContainer>TOTAL: ${total}</TotalContainer>
-        
+
+            {confirmationMessage === '' ? '' 
+            : <ConfirmationMessage>
+                {confirmationMessage}
+            </ConfirmationMessage>}
+
             <CustomButton
                 onClick={e => handleSubmit(e)}
             >
@@ -130,7 +141,8 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder }) => {
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
-    total: selectCartTotal
+    total: selectCartTotal,
+    confirmationId: selectConfirmationId
 });
 
 const mapDispatchToProps  = (dispatch) => {

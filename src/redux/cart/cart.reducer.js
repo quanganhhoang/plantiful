@@ -3,7 +3,8 @@ import { addItemToCart, removeItemFromCart } from './cart.utils';
 
 const INITIAL_STATE = {
     hidden: true,
-    cartItems: []
+    cartItems: [],
+    confirmationId: ''
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -39,6 +40,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cartItems: []
+            }
+        case CartActionTypes.SUBMIT_ORDER_SUCCESS:
+            return {
+                ...state,
+                cartItems: [],
+                confirmationId: action.payload
             }
         default:
             return state;

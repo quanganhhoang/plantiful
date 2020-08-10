@@ -23,7 +23,7 @@ export const CollectionPreview = ({
             {items
                 .filter((item, index) => index < 4)
                 .map(item => (
-                    <CollectionItem key={item.id} item={item} />
+                    <CollectionItem key={item.name} item={item} />
                 )
             )}
         </PreviewContainer>

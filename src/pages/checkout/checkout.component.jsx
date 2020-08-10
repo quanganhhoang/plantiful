@@ -41,7 +41,7 @@ export const CheckoutPage = ({ cartItems, total, history }) => (
             </HeaderBlockContainer>
         </CheckoutHeaderContainer>
         {cartItems.map(cartItem => (
-            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+            <CheckoutItem key={cartItem.name} cartItem={cartItem} />
         ))}
         <TotalContainer>TOTAL: ${total}</TotalContainer>
         {/* <WarningContainer>

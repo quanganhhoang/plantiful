@@ -84,8 +84,9 @@ export const addOrderRequest = async (userCredentials, cartItems, total) => {
         creationDate: new Date().toLocaleString(),
     };
     batch.set(newDocRef, obj);
-
-    return await batch.commit();
+    await batch.commit();
+    
+    return newDocRef.id;
 };
 
 export const viewRequests = async () => {
