@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -13,9 +13,11 @@ import {
     PriceContainer
 } from './collection-item.styles';
 
+import { convertPlantNameToImageDir } from '../../util/utils';
+
 export const CollectionItem = ({ item, addItem, history }) => {
     const { name, price, image } = item;
-    const catalogUrl = name.toLowerCase().split(' ').join('-');
+    const catalogUrl = convertPlantNameToImageDir(name);
     
     return (
         <CollectionItemContainer>

@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { GlobalStyle } from './global.styles'
@@ -8,9 +8,9 @@ import ErrorBoundary from './components/error-boundary/error-boundary.component'
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
-const SignInAndSignUpPage = lazy(() =>
-  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
-);
+// const SignInAndSignUpPage = lazy(() =>
+//   import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
+// );
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const OrderConfirmationPage = lazy(() => import('./pages/order-confirmation/order-confirmation.component'));
 const PlantInfo = lazy(() => import('./components/plant-info/plant-info.component'));

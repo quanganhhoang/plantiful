@@ -27,13 +27,15 @@ import {
     getImagesFromFirestore
 } from '../../firebase/firebase.utils'
 
+import { convertPlantNameToImageDir } from '../../util/utils';
+
 export const PlantInfo = ( { addItem, location }) => {
     const [images, setImages] = useState([]);
     
     useEffect(() => {
         async function fetchData() {
             const name = location.state.item.name;
-            const dirName = name.toLowerCase().split(' ').join('');
+            const dirName = convertPlantNameToImageDir(name);
 
             await getImagesFromFirestore(dirName).then(res => {
                 setImages(res);
