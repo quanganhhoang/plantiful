@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -13,9 +13,27 @@ import {
     PriceContainer
 } from './collection-item.styles';
 
+import { storage } from '../../firebase/firebase.utils';
+
 export const CollectionItem = ({ item, addItem, history }) => {
-    const { name, price, imageUrl } = item;
+    const [imageUrl, setImageUrl] = useState('');
+
+    const { name, price, image } = item;
     const catalogUrl = name.toLowerCase().split(' ').join('-');
+    
+    useEffect(() => {
+        async function fetchImage() {
+            if (image !== '') {
+                const imageFirebaseRef = storage.refFromURL(image);
+                imageFirebaseRef.getDownloadURL().then(url => {
+                    setImageUrl(url);
+                }).then(err => {
+                    console.log(err);
+                })
+            }
+        }
+        fetchImage();
+    }, [item]);
 
     return (
         <CollectionItemContainer>

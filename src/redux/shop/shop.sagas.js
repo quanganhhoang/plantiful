@@ -2,38 +2,50 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import {
   firestore,
-  convertCollectionsSnapshotToMap
 } from '../../firebase/firebase.utils';
 
 import {
-    fetchCollectionsSuccess,
-    fetchCollectionsFailure
+    fetchPlantsSuccess,
+    fetchStemsSuccess,
+    fetchProductsFailure
 } from './shop.actions';
 
 import ShopActionTypes from './shop.types';
 
 
-export function* fetchCollectionsAsync() {
+export function* fetchProductsAsync() {
     try {
-        const collectionRef = firestore.collection('collections');
-        const snapshot = yield collectionRef.get();
-        const collectionsMap = yield call(
-            convertCollectionsSnapshotToMap,
-            snapshot
-        );
-        yield put(fetchCollectionsSuccess(collectionsMap));
+        const productRef = firestore.collection('plants');
+        const snapshot = yield productRef.get();
+        
+        const plants = snapshot.docs.map(doc => {
+            return {
+                ...doc.data(),
+                price: doc.data().plantPrice
+            }      
+        });
+        const stems = plants.filter(product => product.isStemAvailable)
+                            .map(stem => {
+                                return {
+                                    ...stem,
+                                    price: stem.stemPrice
+                                }
+                            });
+
+        yield put(fetchPlantsSuccess(plants));
+        yield put(fetchStemsSuccess(stems));
     } catch (error) {
-        yield put(fetchCollectionsFailure(error.message));
+        yield put(fetchProductsFailure(error.message));
     }
 }
 
-export function* fetchCollectionsStart() {
+export function* onWatchFetchProductsStart() {
     yield takeLatest(
-        ShopActionTypes.FETCH_COLLECTIONS_START,
-        fetchCollectionsAsync
+        ShopActionTypes.FETCH_PRODUCTS_START,
+        fetchProductsAsync
     );
 }
 
 export function* shopSagas() {
-  yield all([call(fetchCollectionsStart)]);
+  yield all([call(onWatchFetchProductsStart)]);
 }

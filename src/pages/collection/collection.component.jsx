@@ -15,8 +15,9 @@ import {
   CollectionItemsContainer
 } from './collection.styles';
 
-export const CollectionPage = ({ collection }) => {
-    const { title, items } = collection;
+
+export const CollectionPage = ({ items, match }) => {
+    const title = match.params.collectionId;
     return (
         <div>
             <Breadcrumbs>
@@ -27,11 +28,11 @@ export const CollectionPage = ({ collection }) => {
                     <a href="/shop">Shop</a>
                 </Crumb>
                 <Crumb>
-                    {title}
+                    { title.charAt(0).toUpperCase() + title.slice(1) }
                 </Crumb>
             </Breadcrumbs>
             <CollectionPageContainer>
-                <CollectionTitle>{title}</CollectionTitle>
+                <CollectionTitle>{ title.toUpperCase() }</CollectionTitle>
                 <CollectionItemsContainer>
                     {items.map(item => (
                         <CollectionItem key={item.name} item={item} />
@@ -43,7 +44,7 @@ export const CollectionPage = ({ collection }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    collection: selectCollection(ownProps.match.params.collectionId)(state)
+    items: selectCollection(ownProps.match.params.collectionId)(state)
 });
 
 export default connect(mapStateToProps)(CollectionPage);

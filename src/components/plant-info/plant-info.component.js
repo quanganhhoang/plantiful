@@ -34,7 +34,7 @@ export const PlantInfo = ( { addItem, location }) => {
         async function fetchData() {
             const name = location.state.item.name;
             const dirName = name.toLowerCase().split(' ').join('');
-            
+
             await getImagesFromFirestore(dirName).then(res => {
                 setImages(res);
             });
