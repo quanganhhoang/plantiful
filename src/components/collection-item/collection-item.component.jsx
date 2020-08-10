@@ -33,7 +33,7 @@ export const CollectionItem = ({ item, addItem, history }) => {
             }
         }
         fetchImage();
-    }, [item]);
+    }, [image]);
 
     return (
         <CollectionItemContainer>
