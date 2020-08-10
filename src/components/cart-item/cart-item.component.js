@@ -6,9 +6,9 @@ import {
     CartItemImage
 } from './cart-item.styles';
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
+const CartItem = ({ item: { image, price, name, quantity } }) => (
     <CartItemContainer>
-        <CartItemImage src={imageUrl} alt='item' />
+        <CartItemImage src={image} alt='item' />
         <ItemDetailsContainer>
             <span>{name}</span>
             <span>
