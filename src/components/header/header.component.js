@@ -24,13 +24,13 @@ export const Header = ({ currentUser, hidden, signOutStart }) => (
         <OptionsContainer>
             <OptionLink to='/shop'>SHOP</OptionLink>
             <OptionLink to='/contact'>CONTACT</OptionLink>
-                {currentUser ? (
+                {/* {currentUser ? (
                     <OptionLink as='div' onClick={signOutStart}>
                         SIGN OUT
                     </OptionLink>
                 ) : (
                     <OptionLink to='/signin'>SIGN IN</OptionLink>
-                )}
+                )} */}
             <CartIcon />
         </OptionsContainer>
         {hidden ? null : <CartDropdown />}
