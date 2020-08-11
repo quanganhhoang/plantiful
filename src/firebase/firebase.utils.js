@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+import 'firebase/performance';
 
 const config = {
     apiKey: "AIzaSyD3ma60wNwlNWl3tdvvGIAG6uvSexQ76i8",
@@ -19,6 +20,7 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+export const perf = firebase.performance();
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
