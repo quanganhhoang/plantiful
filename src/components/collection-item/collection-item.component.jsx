@@ -16,14 +16,14 @@ import {
 import { convertPlantNameToImageDir } from '../../util/utils';
 
 export const CollectionItem = ({ item, addItem, history }) => {
-    const { name, price, image } = item;
+    const { name, price, previewImageUrl } = item;
     const catalogUrl = convertPlantNameToImageDir(name);
     
     return (
         <CollectionItemContainer>
             <BackgroundImage 
                 className='image' 
-                imageUrl={image} 
+                imageUrl={previewImageUrl} 
                 onClick={() => history.push({
                     pathname: `/catalog/${catalogUrl}`,
                     state: {

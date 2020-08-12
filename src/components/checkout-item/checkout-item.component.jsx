@@ -16,11 +16,11 @@ import {
 } from './checkout-item.styles';
 
 export const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-    const { name, image, price, quantity } = cartItem;
+    const { name, previewImageUrl, price, quantity } = cartItem;
     return (
         <CheckoutItemContainer>
             <ImageContainer>
-                <img src={image} alt='item' />
+                <img src={previewImageUrl} alt='item' />
             </ImageContainer>
             <TextContainer>{name}</TextContainer>
             <QuantityContainer>
