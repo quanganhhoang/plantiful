@@ -7,7 +7,7 @@ Plantiful is an e-commerce web application created with create-react-app and fir
 
 Technology stack: React, Firebase.
 
-Sneak peek: https://plantifully.herokuapp.com/
+Sneak peek: https://plantiful.page
 
 <!-- Youtube:
 
@@ -24,10 +24,10 @@ Installing test libraries (jest & enzyme)
 
 ## TODO:
 - ~~Deploy to Heroku~~
-- Add breadcrumbs to each page
-- Update plant images
-- Update plant information
-- Error message for order confirmation page
+- ~~Add breadcrumbs to each page~~
+- ~~Update plant images~~
+- ~~Update plant information~~
+- ~~Error message for order confirmation page~~
 - Optimize build with React memo
 - Tests
 
@@ -47,6 +47,11 @@ Check configuration
 Push it!
 
     git push heroku master
+
+
+## Deployment on Firebase
+
+    npm run deploy
 
 
 ## Authors
