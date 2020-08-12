@@ -57,7 +57,7 @@ export const BackgroundImage = styled.div`
   height: 95%;
   background-size: cover;
   background-position: center;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
   display: flex;
 `;
@@ -70,6 +70,7 @@ export const CollectionFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  margin-bottom: 20px;
 `;
 
 CollectionFooterContainer.displayName = 'CollectionFooterContainer';
