@@ -34,19 +34,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         case CartActionTypes.CLEAR_CART:
             return {
                 ...state,
-                cartItems: []
-            };
-        case CartActionTypes.SUBMIT_ORDER:
-            return {
-                ...state,
-                cartItems: []
-            }
-        case CartActionTypes.SUBMIT_ORDER_SUCCESS:
-            return {
-                ...state,
                 cartItems: [],
-                confirmationId: action.payload
-            }
+            };
         default:
             return state;
     }

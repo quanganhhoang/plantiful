@@ -7,7 +7,6 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 import {
     selectCartItems,
     selectCartTotal,
-    selectConfirmationId
 } from '../../redux/cart/cart.selectors';
 
 import {
@@ -23,15 +22,21 @@ import FormInput from '../../components/form-input/form-input.component';
 
 import CustomButton from '../../components/custom-button/custom-button.component'
 
-import { submitOrder } from '../../redux/cart/cart.actions'
+import {
+    addOrderRequest,
+} from '../../firebase/firebase.utils';
+
+import {
+    clearCart
+} from '../../redux/cart/cart.actions';
 
 const INITIAL_STATE = {
     email: '',
     name: '',
-    phoneNumber: ''
+    phoneNumber: '',
 }
 
-export const OrderConfirmationPage = ({ cartItems, total, submitOrder, confirmationId }) => {
+export const OrderConfirmationPage = ({ cartItems, total, clearCart }) => {
     const [userCredentials, setUserCredentials] = useState(INITIAL_STATE);
     const [confirmationMessage, setConfirmationMessage] = useState('');
 
@@ -43,12 +48,13 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder, confirmat
         });
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         if (validateInformation(userCredentials, cartItems)) {
-            submitOrder(userCredentials, cartItems, total)
+            const plantId = await addOrderRequest(userCredentials, cartItems, total)
             setUserCredentials(INITIAL_STATE);
-            setConfirmationMessage(`Your order has been submitted. Here is your confirmation order: ${confirmationId}`);
+            setConfirmationMessage(`Your order has been submitted. Here is your confirmation order: ${plantId}`);
+            clearCart();
         } else if (!Array.isArray(cartItems) || !cartItems.length) {
             setConfirmationMessage('Did you forget to pick your favorite plants? :)');
         } else {
@@ -142,13 +148,10 @@ export const OrderConfirmationPage = ({ cartItems, total, submitOrder, confirmat
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal,
-    confirmationId: selectConfirmationId
 });
 
-const mapDispatchToProps  = (dispatch) => {
-    return {
-        submitOrder: (userCredentials, cartItems, total) => dispatch(submitOrder(userCredentials, cartItems, total))
-    }
-}
+const mapDispatchToProps = (dispatch) => ({
+    clearCart: () => dispatch(clearCart())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderConfirmationPage);
