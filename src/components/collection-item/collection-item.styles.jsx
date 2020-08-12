@@ -47,6 +47,23 @@ export const AddButton = styled(CustomButton)`
     opacity: 0.9;
     min-width: unset;
     padding: 0 10px;
+
+    &:active {
+        -webkit-transform:scale(0.9); 
+        -moz-transform:scale(0.9); 
+        -ms-transform:scale(0.9); 
+        -o-transform:scale(0.9); 
+        transform:scale(0.9); 
+        -webkit-box-shadow:0px 0px 20px #FFF; 
+        -moz-box-shadow:0px 0px 20px #FFF; 
+        -o-box-shadow:0px 0px 20px #FFF; 
+        box-shadow:0px 0px 20px #FFF; 
+    }
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
   }
 `;
 
@@ -76,14 +93,14 @@ export const CollectionFooterContainer = styled.div`
 CollectionFooterContainer.displayName = 'CollectionFooterContainer';
 
 export const NameContainer = styled.span`
-  width: 90%;
+  width: 80%;
   margin-bottom: 15px;
 `;
 
 NameContainer.displayName = 'NameContainer';
 
 export const PriceContainer = styled.span`
-  width: 10%;
+  width: 20%;
   text-align: right;
 `;
 
