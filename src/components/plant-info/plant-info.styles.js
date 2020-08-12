@@ -5,11 +5,15 @@ import CustomButton from '../custom-button/custom-button.component';
 export const PlantName = styled.h1`
     padding-left: 5px;
     margin-left: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0;
 `;
 
 export const PlantBotanicalName = styled.p`
     padding-left: 5px;
     margin-left: 5px;
+    font-style: italic;
 `;
 
 export const PlantInfoContainer = styled.div`
