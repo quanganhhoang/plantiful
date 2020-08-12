@@ -6,6 +6,7 @@ import { Breadcrumbs, Crumb } from '../breadcrumbs/breadcrumb.styles'
 
 import {
     PlantName,
+    PlantBotanicalName,
     PlantInfoContainer,
     ImagesContainer,
     InfoContainer,
@@ -91,10 +92,15 @@ export const PlantInfo = ( { addItem, location }) => {
     
     const { 
         name,
+        botanicalName,
         light, 
         water, 
         humidity, 
-        isToxicToPets, 
+        isToxicToPets,
+        isStemAvailable,
+        plantPrice,
+        stemPrice,
+        potSize, 
         other 
     } = item;
 
@@ -113,6 +119,7 @@ export const PlantInfo = ( { addItem, location }) => {
             </Breadcrumbs>
             
             <PlantName>{name}</PlantName>
+            <PlantBotanicalName>{botanicalName}</PlantBotanicalName>
             <PlantInfoContainer>
                 <ImagesContainer>
                     <Carousel
@@ -127,12 +134,18 @@ export const PlantInfo = ( { addItem, location }) => {
                     </Carousel>
                 </ImagesContainer>
                 <InfoContainer>
-                    <Info>Name: {name}</Info>
-                    <Info>Light: {light}</Info>
-                    <Info>Water: {water}</Info>
-                    <Info>Humidity: {humidity}</Info>
-                    <Info>Toxic to pets: {isToxicToPets}</Info>
-                    <Info>Other: {other}</Info>
+                    <Info>Light: <span>{light}</span></Info>
+                    <Info>Water: <span>{water}</span></Info>
+                    <Info>Humidity: <span>{humidity}</span></Info>
+                    <Info>Toxic to pets: <span>{isToxicToPets}</span></Info>
+                    <Info>Other: <span>{other}</span></Info>
+                    <Info>Pot size: <span>{potSize}"</span></Info>
+                    <Info>Plant price: <span>${plantPrice}</span></Info>
+                    {
+                        isStemAvailable ? 
+                        <Info>Stem price: <span>${stemPrice}</span></Info>
+                        : ''
+                    }
                     <AddButton 
                         inverted
                         onClick={() => addItem(item)}>

@@ -7,6 +7,10 @@ export const PlantName = styled.h1`
     margin-left: 5px;
 `;
 
+export const PlantBotanicalName = styled.p`
+    padding-left: 5px;
+    margin-left: 5px;
+`;
 
 export const PlantInfoContainer = styled.div`
     display: flex;
@@ -22,8 +26,8 @@ export const PlantInfoContainer = styled.div`
 `;
 
 export const ImagesContainer = styled.div`
-    width: 40%;
-    height: 90%;
+    width: 50%;
+    height: 100%;
     margin-bottom: 5px;
     margin-right: 20px;
     display: block;
@@ -35,18 +39,22 @@ export const ImagesContainer = styled.div`
 
 export const InfoContainer = styled.div`
     width: 60%;
-    height: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 `;
 
 export const Info = styled.p`
     font-weight: bold;
+
+    span {
+        font-weight: normal;   
+    }
 `;
 
 export const AddButton = styled(CustomButton)`
     width: 60%;
-    margin-top: 28px;
+    margin-top: 25px;
 
     @media screen and (max-width: 800px) {
         display: block;
