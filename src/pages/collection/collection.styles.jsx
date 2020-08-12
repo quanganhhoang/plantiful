@@ -17,7 +17,7 @@ export const CollectionItemsContainer = styled.div`
   grid-gap: 10px;
 
   & > div {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 
   @media screen and (max-width: 800px) {
