@@ -13,7 +13,13 @@ export const PlantName = styled.h1`
 export const PlantBotanicalName = styled.p`
     padding-left: 5px;
     margin-left: 5px;
+    margin-bottom: 0px;
     font-style: italic;
+`;
+
+export const PlantPrice = styled.p`
+    padding-left: 5px;
+    margin-left: 5px;
 `;
 
 export const PlantInfoContainer = styled.div`
@@ -30,7 +36,7 @@ export const PlantInfoContainer = styled.div`
 `;
 
 export const ImagesContainer = styled.div`
-    width: 50%;
+    width: 80%;
     height: 100%;
     margin-bottom: 5px;
     margin-right: 20px;
@@ -41,8 +47,17 @@ export const ImagesContainer = styled.div`
     }
 `;
 
+export const ImageFootnote = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75em;
+    font-style: italic;
+`;
+
 export const InfoContainer = styled.div`
-    width: 60%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
