@@ -1,6 +1,6 @@
 export const addItemToCart = (cartItems, cartItemToAdd) => {
     const existingCartItem = cartItems.find(
-      cartItem => cartItem.name === cartItemToAdd.name
+      cartItem => (cartItem.name === cartItemToAdd.name && cartItem.price === cartItemToAdd.price)
     );
   
     if (existingCartItem) {
