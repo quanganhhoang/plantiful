@@ -123,10 +123,10 @@ export const PlantInfo = ( { addItem, location }) => {
             <PlantName>{name}</PlantName>
             <PlantBotanicalName>{botanicalName}</PlantBotanicalName>
             {
-                        isStemAvailable ? 
-                        <PlantPrice>Stem Price: ${stemPrice}</PlantPrice>
-                        : <PlantPrice>${plantPrice}</PlantPrice>
-                    }
+                isStemAvailable ? 
+                <PlantPrice>Stem Price: ${stemPrice}</PlantPrice>
+                : <PlantPrice>${plantPrice}</PlantPrice>
+            }
             <PlantInfoContainer>
                 <ImagesContainer>
                     <Carousel
@@ -148,12 +148,6 @@ export const PlantInfo = ( { addItem, location }) => {
                     <Info>Toxic to pets: <span>{isToxicToPets}</span></Info>
                     <Info>Other: <span>{other}</span></Info>
                     <Info>Pot size: <span>{potSize}"</span></Info>
-                    {/* <Info>Plant price: <span>${plantPrice}</span></Info> */}
-                    {/* {
-                        isStemAvailable ? 
-                        <Info>Stem price: <span>${stemPrice}</span></Info>
-                        : ''
-                    } */}
                     <AddButton 
                         inverted
                         onClick={() => addItem(item)}>
