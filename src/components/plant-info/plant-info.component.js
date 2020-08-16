@@ -10,7 +10,7 @@ import {
     PlantPrice,
     PlantInfoContainer,
     ImagesContainer,
-    ImagesFooter,
+    ImageFootnote,
     InfoContainer,
     Info,
     AddButton
@@ -139,6 +139,7 @@ export const PlantInfo = ( { addItem, location }) => {
                         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
                         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
                     </Carousel>
+                    <ImageFootnote>*plant shown is just an example of what's in stock</ImageFootnote>
                 </ImagesContainer>
                 <InfoContainer>
                     <Info>Light: <span>{light}</span></Info>
