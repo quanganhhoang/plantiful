@@ -13,7 +13,13 @@ export const PlantName = styled.h1`
 export const PlantBotanicalName = styled.p`
     padding-left: 5px;
     margin-left: 5px;
+    margin-bottom: 0px;
     font-style: italic;
+`;
+
+export const PlantPrice = styled.p`
+    padding-left: 5px;
+    margin-left: 5px;
 `;
 
 export const PlantInfoContainer = styled.div`
