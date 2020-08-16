@@ -36,7 +36,7 @@ export const PlantInfoContainer = styled.div`
 `;
 
 export const ImagesContainer = styled.div`
-    width: 50%;
+    width: 80%;
     height: 100%;
     margin-bottom: 5px;
     margin-right: 20px;
@@ -57,7 +57,7 @@ export const ImageFootnote = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-    width: 60%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
