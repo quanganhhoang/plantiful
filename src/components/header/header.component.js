@@ -23,6 +23,7 @@ export const Header = ({ currentUser, hidden, signOutStart }) => (
         </LogoContainer>
         <OptionsContainer>
             <OptionLink to='/shop'>SHOP</OptionLink>
+            <OptionLink to='/info'>INFO</OptionLink>
             <OptionLink to='/contact'>CONTACT</OptionLink>
                 {/* {currentUser ? (
                     <OptionLink as='div' onClick={signOutStart}>
