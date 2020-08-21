@@ -15,7 +15,7 @@ const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const OrderConfirmationPage = lazy(() => import('./pages/order-confirmation/order-confirmation.component'));
 const PlantInfo = lazy(() => import('./components/plant-info/plant-info.component'));
-const InfoPage = lazy(() => import('./pages/information/information.component'));
+const InfoPage = lazy(() => import('./pages/info-page/info-page.component'));
 
 
 const App = () => {
