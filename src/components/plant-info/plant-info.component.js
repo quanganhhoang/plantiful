@@ -22,32 +22,9 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    // CarouselIndicators,
-    // CarouselCaption
 } from 'reactstrap';
 
-// import {
-//     getImagesFromFirestore
-// } from '../../firebase/firebase.utils'
-
-// import { convertPlantNameToImageDir } from '../../util/utils';
-
 export const PlantInfo = ( { addItem, location }) => {
-    // const [images, setImages] = useState([]);
-    
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const name = location.state.item.name;
-    //         const dirName = convertPlantNameToImageDir(name);
-
-    //         await getImagesFromFirestore(dirName).then(res => {
-    //             setImages(res);
-    //         });
-    //     }
-    //     fetchData();
-        
-    // }, [location.state.item.name]);
-
     const { item } = location.state;
     
     const { 
@@ -73,12 +50,10 @@ export const PlantInfo = ( { addItem, location }) => {
                 key={`image-${index}`}
             >
                 <img
-                    // style={{display: 'block', height: '50vh', width: 'auto'}}
                     className="d-block w-100"
                     src={url} 
                     alt={''}
                 />
-                {/* <CarouselCaption captionText={item.caption} captionHeader={item.caption} /> */}
             </CarouselItem>
         );
     });
@@ -98,13 +73,6 @@ export const PlantInfo = ( { addItem, location }) => {
         const nextIndex = activeIndex === 0 ? imageUrls.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     }
-
-    // const goToIndex = (newIndex) => {
-    //     if (animating) return;
-    //     setActiveIndex(newIndex);
-    // }
-
-    // carousel
 
     return (
         <div>
