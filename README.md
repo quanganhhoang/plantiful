@@ -30,6 +30,9 @@ Installing test libraries (jest & enzyme)
 - ~~Error message for order confirmation page~~
 - Optimize build with React memo
 - Tests
+- ~~Fix Plant with stems' price
+- Add plant and stem quantity boxes in plant info page 
+- cart-item key is currently based on plant name and is not unique
 
 
 ## Deployment on Heroku

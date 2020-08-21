@@ -62,7 +62,7 @@ export const AddButton = styled(CustomButton)`
 
     &:hover {
         background-color: white;
-        color: black;
+        color: #256227;
     }
   }
 `;

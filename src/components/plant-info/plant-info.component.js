@@ -124,7 +124,7 @@ export const PlantInfo = ( { addItem, location }) => {
             <PlantBotanicalName>{botanicalName}</PlantBotanicalName>
             {
                 isStemAvailable ? 
-                <PlantPrice>Stem Price: ${stemPrice}</PlantPrice>
+                <PlantPrice>Plant / Stem Price: ${plantPrice} / ${stemPrice}</PlantPrice>
                 : <PlantPrice>${plantPrice}</PlantPrice>
             }
             <PlantInfoContainer>
