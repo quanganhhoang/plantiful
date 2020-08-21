@@ -73,7 +73,7 @@ export const Info = styled.p`
 
 export const AddButton = styled(CustomButton)`
     width: 60%;
-    margin-top: 25px;
+    margin-top: 15px;
 
     @media screen and (max-width: 800px) {
         display: block;
