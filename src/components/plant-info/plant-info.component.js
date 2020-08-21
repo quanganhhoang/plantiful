@@ -13,8 +13,11 @@ import {
     ImageFootnote,
     InfoContainer,
     Info,
+    QuantityContainer,
     AddButton
 } from './plant-info.styles';
+
+import { InputNumber } from 'antd';
 
 import { addItem } from '../../redux/cart/cart.actions';
 
@@ -24,7 +27,12 @@ import {
     CarouselControl,
 } from 'reactstrap';
 
-export const PlantInfo = ( { addItem, location }) => {
+export const PlantInfo = ( { addItem, location, history }) => {
+    const [quantity, setQuantity] = useState({
+        plantQuantity: 0,
+        stemQuantity: 0
+    });
+
     const { item } = location.state;
     
     const { 
@@ -74,6 +82,49 @@ export const PlantInfo = ( { addItem, location }) => {
         setActiveIndex(nextIndex);
     }
 
+    const onChangePlantQuantity = (value) => {
+        setQuantity({
+            ...quantity,
+            plantQuantity: value
+        })
+    }
+
+    const onChangeStemQuantity = (value) => {
+        setQuantity({
+            ...quantity,
+            stemQuantity: value
+        })
+    }
+
+    const quantityInputStyles = {
+        fontWeight: 'bold',
+        padding: '0 5px 0 0'
+    }
+
+    const addToCart = () => {
+        for (let i = 0; i < quantity.plantQuantity; i++) {
+            addItem({
+                ...item,
+                price: item.plantPrice
+            })
+        }
+
+        for (let i = 0; i < quantity.stemQuantity; i++) {
+            addItem({
+                ...item,
+                price: item.stemPrice
+            })
+        }
+
+        setQuantity({
+            ...quantity,
+            plantQuantity: 0,
+            stemQuantity: 0
+        });
+
+        history.push('/checkout');
+    }
+
     return (
         <div>
             <Breadcrumbs>
@@ -102,7 +153,6 @@ export const PlantInfo = ( { addItem, location }) => {
                         next={next}
                         previous={previous}
                     >
-                        {/* <CarouselIndicators items={images} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
                             {slides}
                         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
                         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
@@ -116,10 +166,34 @@ export const PlantInfo = ( { addItem, location }) => {
                     <Info>Toxic to pets: <span>{isToxicToPets}</span></Info>
                     <Info>Other: <span>{other}</span></Info>
                     <Info>Pot size: <span>{potSize}"</span></Info>
+
+                    <QuantityContainer>
+                        <span style={quantityInputStyles}>Plant Quantity</span>
+                        <InputNumber
+                            autoFocus
+                            min={0} 
+                            max={10}
+                            defaultValue={0}
+                            value={quantity.plantQuantity}
+                            onChange={onChangePlantQuantity}
+                        />
+                    </QuantityContainer>
+                    <QuantityContainer>
+                        <span style={quantityInputStyles}>Stem Quantity</span>
+                        <InputNumber
+                            autoFocus
+                            min={0} 
+                            max={10} 
+                            defaultValue={0} 
+                            value={quantity.stemQuantity}
+                            onChange={onChangeStemQuantity}
+                            disabled={!item.isStemAvailable}    
+                        />
+                    </QuantityContainer>
                     <AddButton 
                         inverted
-                        onClick={() => addItem(item)}>
-                        Add to cart
+                        onClick={() => addToCart()}>
+                            Add to cart
                     </AddButton>
                 </InfoContainer>
             </PlantInfoContainer>       

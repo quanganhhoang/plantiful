@@ -63,6 +63,11 @@ export const InfoContainer = styled.div`
     flex-direction: column;
 `;
 
+export const QuantityContainer = styled.div`
+    display: flex;
+    margin: 5px 5px 5px 0;
+`;
+
 export const Info = styled.p`
     font-weight: bold;
 

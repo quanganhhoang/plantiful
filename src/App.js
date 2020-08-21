@@ -1,3 +1,4 @@
+import './App.css';
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
