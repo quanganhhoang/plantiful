@@ -43,7 +43,7 @@ export const ImagesContainer = styled.div`
     display: block;
 
     @media screen and (max-width: 800px) {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 `;
 
