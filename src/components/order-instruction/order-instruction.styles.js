@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const InfoTitle = styled.h2`
+export const InstructionTitle = styled.h2`
     font-size: 28px;
     margin: 0 auto 30px;
     display: flex;
@@ -10,7 +10,8 @@ export const InfoTitle = styled.h2`
     border-bottom: solid #256227;
 `;
 
-export const InfoContent = styled.div`
+export const InstructionContent = styled.div`
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -22,4 +23,14 @@ export const InfoContent = styled.div`
     @media screen and (max-width: 800px) {
         flex-direction: column;
     }
+`;
+
+export const InstructionOrderedList = styled.ol`
+    list-style: num;
+    list-style-position: outside;
+`;
+
+export const InstructionUnorderedList = styled.ul`
+    list-style: square;
+    list-style-position: outside;
 `;
