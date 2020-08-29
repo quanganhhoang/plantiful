@@ -32,6 +32,7 @@ export const PlantInfoContainer = styled.div`
 
     @media screen and (max-width: 800px) {
         flex-direction: column;
+
     }
 `;
 
@@ -61,6 +62,7 @@ export const InfoContainer = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 75px;
 `;
 
 export const QuantityContainer = styled.div`
