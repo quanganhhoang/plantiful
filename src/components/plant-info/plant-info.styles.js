@@ -32,7 +32,6 @@ export const PlantInfoContainer = styled.div`
 
     @media screen and (max-width: 800px) {
         flex-direction: column;
-
     }
 `;
 
@@ -62,7 +61,6 @@ export const InfoContainer = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 75px;
 `;
 
 export const QuantityContainer = styled.div`
@@ -81,11 +79,12 @@ export const Info = styled.p`
 export const AddButton = styled(CustomButton)`
     width: 60%;
     margin-top: 15px;
-
+    
     @media screen and (max-width: 800px) {
         display: block;
         min-width: unset;
         padding: 0 10px;
+        margin-bottom: 50px;
     }
 `;
 

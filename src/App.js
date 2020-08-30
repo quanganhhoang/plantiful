@@ -15,7 +15,7 @@ const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const OrderConfirmationPage = lazy(() => import('./pages/order-confirmation/order-confirmation.component'));
 const PlantInfo = lazy(() => import('./components/plant-info/plant-info.component'));
-const InfoPage = lazy(() => import('./pages/info-page/info-page.component'));
+const InstructionPage = lazy(() => import('./pages/order-instruction/order-instruction.component'));
 
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
                         <Route exact path='/checkout' component={CheckoutPage} />
                         <Route exact path='/checkout/confirmation' component={OrderConfirmationPage} />
                         <Route exact path='/catalog/:plant' component={PlantInfo} />
-                        <Route exact path='/info' component={InfoPage} />
+                        <Route exact path='/instruction' component={InstructionPage} />
                         {/* <Route
                             exact
                             path='/signin'
