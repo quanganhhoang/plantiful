@@ -17,7 +17,7 @@ export const InstructionContent = styled.div`
     height: 350px;
     align-items: center;
     position: relative;
-    padding-left: 10px;
+    padding: 10px 10px;
     text-align: left;
 
     @media screen and (max-width: 800px) {

@@ -54,6 +54,13 @@ export const OptionLink = styled(Link)`
     padding: 10px 15px;
     cursor: pointer;
 
+    &:hover {
+        text-decoration: solid underline;
+        color: #256227;
+        // background-color: #256227;
+        // opacity: 0.3;
+    }
+
     @media screen and (max-width: 800px) {
         padding: 10px 5px;
         font-size: 0.8em;
