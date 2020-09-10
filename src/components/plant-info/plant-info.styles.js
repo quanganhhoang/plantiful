@@ -43,7 +43,7 @@ export const ImagesContainer = styled.div`
     display: block;
 
     @media screen and (max-width: 800px) {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 `;
 
@@ -79,11 +79,12 @@ export const Info = styled.p`
 export const AddButton = styled(CustomButton)`
     width: 60%;
     margin-top: 15px;
-
+    
     @media screen and (max-width: 800px) {
         display: block;
         min-width: unset;
         padding: 0 10px;
+        margin-bottom: 50px;
     }
 `;
 
